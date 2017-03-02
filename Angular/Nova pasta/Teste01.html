@@ -1,0 +1,31 @@
+<html ng-app="app">
+    <head>
+        <title>Hello World</title>
+        <script src="js/script.min.js"></script>
+        <script src="simpleController.js"></script>
+
+    </head>
+    <body ng-controller="simpleController">
+	
+		<form name="myForm">
+			<span ng-show="myForm.$invalid">
+				Found erros in the form
+			</span>
+			<input type="text" ng-model="name" value="Your n\ ame" required/>
+			<button ng-disabled="myForm.$invalid">Save</button>
+		</form>
+	
+    	Hello <input type="text" ng-model="user.name"/>
+    	<hr/>
+    	<h1>Hello {{user.name}}</h1>
+		
+		<a href="#" ng-click="addOne()">Add 1</a>
+    	<hr/>
+    	<p>Counter value: {{counter}}</p>
+		
+		
+		<ul>
+			<li ng-repeat="fruit in fruits">{{fruit}}</li>
+		</ul>
+    </body>
+</html>

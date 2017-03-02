@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<title>Angular w3schools</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script type="text/javascript" src="personController.js"></script>
+		<!--<script type="text/javascript" src='http://www.w3schools.com/website/Customers_JSON.php'></script>-->
+		<style>
+			table, th , td {
+			  border: 1px solid grey;
+			  border-collapse: collapse;
+			  padding: 5px;
+			}
+			table tr:nth-child(odd) {
+			  background-color: #f1f1f1;
+			}
+			table tr:nth-child(even) {
+			  background-color: #ffffff;
+			}
+		</style>
+	</head>
+	<body ng-app=''>
+		<div ng-controller='personController' ng-init="name=[
+		{name: 'wellington', country: 'goias'}, 
+		{name: 'Hanna', country: 'tocantins'},
+		{name: 'Clara', country: 'minas'}]">
+			first name:<input type='text' ng-model='firstName'><br>
+			last name:<input type='text' ng-model='lastName'><br>
+			<br>
+			Full Name: {{fullName() | lowercase}}
+
+			<p>				
+				<input text='text' ng-model='nome'/>
+			</p>
+			<p ng-bind='nome'></p>
+		</div>
+		<div ng-controller='namesController'>
+			<p><input type='text' ng-model='test'></p>
+			<ul>
+				<li ng-repeat='x in names | orderBy:"name" | filter:test'>
+					{{(x.name | uppercase) + ', ' + x.country}}
+				</li>
+			</ul>
+		</div>
+		<div ng-controller='costController'>
+			<input type='number' ng-model='quantity'>
+			<input type='number' ng-model='price'>
+
+			<p>Total: {{ (quantity * price) | currency }}</p>
+		</div>
+		<div ng-controller='myController'>
+			<button ng-click='count = count + 1'>Click!</button>
+			<p>{{count}}</p>
+		</div>
+		<div ng-controller='customersController'>			
+			<table ng-hide='myVar'>
+				<tr ng-repeat='x in names | orderBy:"Name"'>
+					<td>{{x.Name}}</td>
+					<td>{{x.Country | uppercase}}</td>
+				</tr>
+			</table>
+		</div>
+		<div ng-init="mySwitch='true'">
+			<p>
+				<button ng-disabled="mySwitch" ng-hide='false'>Click Me!</button>
+			</p>
+			<p>
+				<input type="checkbox" ng-model="mySwitch">Button
+			</p>
+			<p>
+				{{mySwitch}}
+			</p>
+		</div>
+		<div ng-controller='personController'>
+			<button ng-click='toggle()'>Toggle</button>
+			<p ng-show='myVar'>
+				First Name: <input type='text' ng-model='firstName'><br>
+				Last Name: <input type='text' ng-model='lastName'><br>
+				<br>
+				Full Name: {{firstName + " " + lastName}}
+			</p>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="myNoteApp">
+	<head>
+		<title>Minhas Notas</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<style type="text/css">
+		.cor{
+			cor: red;
+		}
+		</style>
+	</head>
+	<body>
+		<div ng-controller="myNoteCtrl" class="cor">
+
+			<h2>Minhas Nota</h2>
+			<p>
+				<textarea rows="10" cols="40" ng-model="message"></textarea>
+			</p>
+			<p>
+				<button ng-click="save()">Salvar</button>
+				<button ng-click="limpar()">Limpar</button>
+			</p>
+			<p>Numeros de caracteres:<span ng-bind="left()"></span></p>
+		</div>
+		<script type="text/javascript" src="myNoteApp.js"></script>
+		<script type="text/javascript" src="myNoteCtrl.js"></script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-ngMessages-directive-production</title>
+  <!--<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular-messages.js"></script>
+  <script src="myCtrl.js"></script>
+
+
+
+</head>
+<script type="text/ng-template" id="my-custom-messages">
+  <div ng-message="required">This field is required</div>
+  <div ng-message="minlength">This field is too short</div>
+</script>
+<body ng-app="ngMessagesExample">
+  <form name="myForm">
+  <label>Enter your name:</label>
+  <input type="text" name="myName" ng-model="name" ng-minlength="2" ng-maxlength="10" required /><br>
+
+  {{ myForm.myName.$error|json}}<br>
+
+  <div ng-messages="myForm.myName.$error" style="color:red" ng-messages-include="my-custom-messages">
+    <div ng-message="required">Escreva um NOME</div>
+    <!--<div ng-message="minlength">Nome muito pequeno</div>-->
+    <div ng-message="maxlength">Nome muito grande</div>
+  </div>
+</form>
+</body>
+</html>
